@@ -6,12 +6,16 @@ export class PostApiService{
         return axios.get("https://jsonplaceholder.typicode.com/posts")
     }
 
+    getPostById(id){
+        return axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    }
+
     getPostByIdUser(id){
         return axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
     }
 
     update(id, body){
-        return axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`,body)
+        return axios.patch(`https://jsonplaceholder.typicode.com/posts/${id}`,body)
     }
 
     delete(id){

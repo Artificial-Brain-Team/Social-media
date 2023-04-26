@@ -1,6 +1,9 @@
 <template>
   <div v-for="post in posts">
-      <post :title="post.title" :body="post.body"/>
+      <div class="post-separator">
+          <post :title="post.title" :body="post.body"/>
+          <router-link :to="{name:'editPost', params: {id: post.userId, idPost: post.id}}" class="editPost">Edit</router-link>
+      </div>
   </div>
 </template>
 
@@ -31,5 +34,13 @@ export default {
 </script>
 
 <style scoped>
+
+.editPost{
+    color: blue;
+}
+
+.post-separator{
+    margin-bottom: 30px;
+}
 
 </style>
