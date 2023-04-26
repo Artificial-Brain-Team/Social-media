@@ -2,6 +2,7 @@
 
     <div v-for="user in users">
         <router-link  :to="{ name: 'user', params: { id: user.id }}">user {{user.id}} {{user.username}}</router-link>
+        <router-link :to="{name: 'posts', params: {id: user.id}}" class="element">Posts</router-link>
     </div>
 
 </template>
@@ -29,5 +30,10 @@ export default {
 </script>
 
 <style scoped>
+
+.element{
+    margin: 10px;
+    color: white;
+}
 
 </style>
