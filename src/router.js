@@ -7,6 +7,7 @@ import notFound from "@/components/notFound.vue";
 import Users from "@/components/Users.vue";
 import createUser from "@/components/createUser.vue";
 import postsComponent from "@/components/posts.component.vue";
+import createPost from "@/components/createPost.vue";
 
 const routes = [
     { path:'/', component: Home},
@@ -16,7 +17,8 @@ const routes = [
     { path: '/users', component: Users},
     { path: '/CreateUser', component: createUser},
     {path:'/:catchAll(.*)' , component: notFound},
-    { path: "/user/:id/posts", component: postsComponent, name: 'posts'}
+    { path: "/user/:id/posts", component: postsComponent, name: 'posts'},
+    { path: "/user/:id/createPost", component: createPost, name: 'createPost'}
 
 ]
 
