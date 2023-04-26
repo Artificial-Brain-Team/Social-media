@@ -3,6 +3,7 @@
       <div class="post-separator">
           <post :title="post.title" :body="post.body"/>
           <router-link :to="{name:'editPost', params: {id: post.userId, idPost: post.id}}" class="editPost">Edit</router-link>
+          <pv-button label="Delete" @click="deletePost(post.id)"></pv-button>
       </div>
   </div>
 </template>
@@ -21,13 +22,29 @@ export default {
             postService: new PostApiService()
         }
     },
+    methods: {
+        deletePost(id){
+            this.postService.delete(id).then((response)=>{
+                if (response.status === 200){
+                    alert("post deleted")
+                    this.getAll()
+                }
+                else{
+                    alert("error deleting post")
+                }
+            })
+        },
+        getAll(){
+            this.postService.getAll().then((response)=>{
+                this.posts = response.data
+            })
+        }
+    },
     beforeMount() {
 
         this.id = this.$route.params.id
 
-        this.postService.getPostByIdUser(this.id).then((response)=>{
-            this.posts = response.data
-        })
+        this.getAll()
     }
 
 }
@@ -37,6 +54,7 @@ export default {
 
 .editPost{
     color: blue;
+    margin-right: 10px;
 }
 
 .post-separator{
