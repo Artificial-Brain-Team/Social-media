@@ -44,7 +44,10 @@ export default {
 
         this.id = this.$route.params.id
 
-        this.getAll()
+        this.postService.getPostByIdUser(this.id).then((response)=>{
+            this.posts = response.data
+        })
+
     }
 
 }
