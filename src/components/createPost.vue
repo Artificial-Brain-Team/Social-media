@@ -30,7 +30,7 @@ export default {
     methods:{
         create(){
 
-            const body = {"title": this.title, "body": this.body};
+            const body = {"title": this.title, "body": this.body, "userId": parseInt(this.$route.params.id)};
 
             this.postService.createPost(body).then((response)=>{
                 if (response.status === 201){

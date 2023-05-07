@@ -4,8 +4,8 @@
       <pv-input-text type="text" v-model="name"></pv-input-text>
   </div>
   <div>
-      <Label>Username</Label>
-      <pv-input-text type="text" v-model="username"></pv-input-text>
+      <Label>Password</Label>
+      <pv-input-text type="text" v-model="password"></pv-input-text>
   </div>
 
   <div>
@@ -28,7 +28,7 @@ export default {
         return{
             userService: new UserApiService(),
             name: "",
-            username: "",
+            password: "",
             email: "",
         }
     },
@@ -37,8 +37,8 @@ export default {
 
             const body =
                 {
+                    "password" : this.password,
                     "name": this.name,
-                    "username": this.username,
                     "email": this.email,
                 }
 
