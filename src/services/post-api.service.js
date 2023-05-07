@@ -1,29 +1,35 @@
 import axios from "axios"
 
+const http = axios.create({
+    baseURL: "http://localhost:3000/660/",
+    headers: {
+        Authorization: `Bearer ${window.localStorage.getItem("jwt")}`
+    }
+})
 export class PostApiService{
 
     getAll(){
-        return axios.get("https://jsonplaceholder.typicode.com/posts")
+        return http.get("posts")
     }
 
     getPostById(id){
-        return axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        return http.get(`posts/${id}`)
     }
 
     getPostByIdUser(id){
-        return axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+        return http.get(`posts?userId=${id}`)
     }
 
     update(id, body){
-        return axios.patch(`https://jsonplaceholder.typicode.com/posts/${id}`,body)
+        return http.patch(`posts/${id}`,body)
     }
 
     delete(id){
-        return axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        return http.delete(`posts/${id}`)
     }
 
     createPost(body){
-        return axios.post("https://jsonplaceholder.typicode.com/posts",body)
+        return http.post("posts",body)
     }
 
 }
