@@ -1,13 +1,11 @@
 <template>
-    <div>
+    <div class="flex-container">
         <label>User</label>
         <pv-input-text v-model="username"></pv-input-text>
 
         <label>Password</label>
         <pv-input-text v-model="password"></pv-input-text>
-
         <pv-button label="login" @click="loginUser()"></pv-button>
-
     </div>
 </template>
   
@@ -43,5 +41,10 @@
 </script>
   
 <style scoped>
-  
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+}
+
 </style>
